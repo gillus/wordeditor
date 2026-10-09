@@ -6,8 +6,12 @@ Open a `.docx` in the browser, make light edits, download it again. Everything r
 npm install
 npm run dev      # http://localhost:5173
 npm test         # builds a sample .docx, edits it in headless Chromium, verifies the saved files
+                 # (needs `pip install -r tests/requirements.txt` and `npx playwright install chromium`)
 npm run build    # static site in dist/ (relative paths, so it works from any URL)
 ```
+
+**CI:** `.github/workflows/test.yml` runs `npm test` on every push to `main` and every pull
+request; if it fails, the saved `.docx` files are attached to the run.
 
 **GitHub Pages:** `.github/workflows/pages.yml` builds and publishes `dist/` on every push to
 `main`. Enable it once under the repo's Settings → Pages → Source: "GitHub Actions". The site is
