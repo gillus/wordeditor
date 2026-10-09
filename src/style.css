@@ -1,0 +1,146 @@
+:root {
+  --chrome-bg: #e8e8e6;
+  --toolbar-bg: #fafaf9;
+  --border: #d4d4d1;
+  --text: #1c1c1a;
+  --muted: #6b6b66;
+  --accent: #2b5fd9;
+  --atom-bg: #eef2fb;
+  --locked-bg: #fbf6e9;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: var(--text);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--chrome-bg);
+}
+
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--toolbar-bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.btn, .toolbar select {
+  font: inherit;
+  font-size: 14px;
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--text);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+.btn:hover:not(:disabled) { border-color: var(--muted); }
+.btn:disabled, .toolbar select:disabled { opacity: 0.45; cursor: default; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn.fmt, .btn.icon { width: 32px; justify-content: center; padding: 0; }
+.btn.icon { font-size: 18px; }
+.toolbar select { max-width: 200px; }
+
+.sep { width: 1px; height: 22px; background: var(--border); margin: 0 4px; }
+.status { margin-left: auto; font-size: 13px; color: var(--muted); }
+.status.notice { color: #9a3412; }
+
+#doc {
+  padding: 32px 16px 96px;
+  overflow-x: auto;
+}
+
+.empty {
+  max-width: 480px;
+  margin: 80px auto;
+  text-align: center;
+  color: var(--muted);
+}
+.empty .hint { font-size: 13px; }
+
+/* The document itself always renders as a white page, like Word does. */
+.page {
+  margin: 0 auto;
+  background: #fff;
+  color: #000;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 4px 16px rgba(0, 0, 0, 0.06);
+  font-family: Calibri, Carlito, 'Segoe UI', sans-serif;
+  font-size: 11pt;
+  line-height: 1.15;
+}
+
+.para {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  min-height: 1lh;
+  outline: none;
+  border-radius: 2px;
+  tab-size: 4;
+}
+.page:focus, .tbl td:focus { outline: none; }
+
+.para[data-marker]::before {
+  /* Like Word's tab after the number: text starts at the indent unless the marker is too wide. */
+  content: attr(data-marker) '\00a0';
+  display: inline-block;
+  min-width: var(--hang);
+  text-indent: 0;
+}
+
+.para.locked {
+  background: var(--locked-bg);
+  cursor: default;
+}
+.rev-ins { color: #1a7f37; text-decoration: underline; }
+.rev-del { color: #c0392b; text-decoration: line-through; }
+
+.atom {
+  background: var(--atom-bg);
+  border-radius: 3px;
+  cursor: default;
+  white-space: pre-wrap;
+}
+.atom-hyperlink { color: #0b57d0; text-decoration: underline; background: none; }
+.atom-image { background: none; display: inline-block; }
+.atom-image img { max-width: 100%; height: auto; vertical-align: bottom; }
+.atom-break {
+  display: block;
+  margin: 6px 0;
+  text-align: center;
+  font: 11px system-ui, sans-serif;
+  color: var(--muted);
+  background: none;
+  border-top: 1px dashed var(--border);
+}
+
+.tbl {
+  border-collapse: collapse;
+  margin: 4pt 0;
+  max-width: 100%;
+}
+.tbl td {
+  border: 1px solid #b7b7b2;
+  padding: 2pt 5.4pt;
+  vertical-align: top;
+}
+
+.sdt { outline: 1px dotted #c8c8c4; outline-offset: 2px; }
+
+.unsupported {
+  margin: 4pt 0;
+  padding: 4px 8px;
+  font: 12px system-ui, sans-serif;
+  color: var(--muted);
+  background: #f4f4f2;
+  border-radius: 4px;
+}

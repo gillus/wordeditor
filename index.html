@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word Editor</title>
+  </head>
+  <body>
+    <header class="toolbar">
+      <label class="btn primary">
+        Open .docx
+        <input id="file" type="file" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document" hidden />
+      </label>
+      <span class="sep"></span>
+      <button id="undo" class="btn icon" title="Undo (Ctrl+Z)" disabled>↶</button>
+      <button id="redo" class="btn icon" title="Redo (Ctrl+Shift+Z)" disabled>↷</button>
+      <select id="style" title="Paragraph style" disabled></select>
+      <button class="btn fmt" data-cmd="bold" title="Bold (Ctrl+B)" disabled><b>B</b></button>
+      <button class="btn fmt" data-cmd="italic" title="Italic (Ctrl+I)" disabled><i>I</i></button>
+      <button class="btn fmt" data-cmd="underline" title="Underline (Ctrl+U)" disabled><u>U</u></button>
+      <span class="sep"></span>
+      <button id="save" class="btn" disabled>Download .docx</button>
+      <span id="status" class="status"></span>
+    </header>
+    <main id="doc">
+      <div class="empty">
+        <p>Open a <code>.docx</code> file, or drop one anywhere on this page.</p>
+        <p class="hint">Everything stays in your browser. Only paragraphs you edit are rewritten on save.</p>
+      </div>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
