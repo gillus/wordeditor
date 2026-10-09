@@ -10,11 +10,11 @@ npm test         # builds a sample .docx, edits it in headless Chromium, verifie
 npm run build    # static site in dist/ (relative paths, so it works from any URL)
 ```
 
-**CI:** `.github/workflows/test.yml` runs `npm test` on every push to `main` and every pull
-request; if it fails, the saved `.docx` files are attached to the run.
+**CI:** `.github/workflows/test.yml` runs `npm test` on every pull request; if it fails, the saved
+`.docx` files are attached to the run.
 
-**GitHub Pages:** `.github/workflows/pages.yml` builds and publishes `dist/` on every push to
-`main`. Enable it once under the repo's Settings → Pages → Source: "GitHub Actions". The site is
+**GitHub Pages:** `.github/workflows/pages.yml` runs the same tests on every push to `main` and,
+only if they pass, builds and publishes `dist/`. Enable it once under the repo's Settings → Pages → Source: "GitHub Actions". The site is
 public; opened documents still never leave the browser.
 
 ## How it works

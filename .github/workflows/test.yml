@@ -1,10 +1,10 @@
-# Runs the full test suite (python-docx sample + Playwright/Chromium editing tests) on pushes and PRs.
+# Runs the full test suite (python-docx sample + Playwright/Chromium editing tests) on PRs.
+# Pushes to main run it from pages.yml, before deploying.
 name: Tests
 
 on:
-  push:
-    branches: [main]
   pull_request:
+  workflow_call:
   workflow_dispatch:
 
 permissions:
