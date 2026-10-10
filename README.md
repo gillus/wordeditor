@@ -14,7 +14,8 @@ npm run build    # static site in dist/ (relative paths, so it works from any UR
 `.docx` files are attached to the run.
 
 **GitHub Pages:** `.github/workflows/pages.yml` runs the same tests on every push to `main` and,
-only if they pass, builds and publishes `dist/`. Enable it once under the repo's Settings → Pages → Source: "GitHub Actions". The site is
+only if they pass, builds and publishes `dist/`. `main` is protected: changes go through a pull
+request, which can merge once its `test` check passes (admins included). Enable it once under the repo's Settings → Pages → Source: "GitHub Actions". The site is
 public; opened documents still never leave the browser.
 
 ## How it works
