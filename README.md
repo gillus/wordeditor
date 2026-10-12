@@ -79,3 +79,7 @@ Source map: `src/docx/` (package, styles, numbering, XML helpers), `src/render.j
 - Bookmarks inside an edited paragraph move to its start or end.
 - Layout is approximate (themes, table styles, borders and floating images are simplified).
 - Only tested against python-docx output; check results in Word/LibreOffice before relying on it.
+
+## License
+
+[MIT](LICENSE)
